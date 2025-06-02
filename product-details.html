@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsive Header</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+
+
+    <style>
+        body {
+            font-family: "Jost", sans-serif;
+            font-style: normal;
+        }
+
+        .top-bar {
+            background: #1a1a1a;
+        }
+
+        .top-bar p {
+            margin: 0px;
+            color: white;
+            font-size: 14px;
+            padding: 12px 0;
+            text-align: center;
+        }
+
+        .site-logo {
+            max-width: 135px;
+            width: 100%;
+        }
+
+        .navbar-brand {
+            max-width: 215px;
+            width: 100%;
+        }
+
+        .navbar-nav .nav-link {
+            margin-right: 23px;
+            margin-left: 23px;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: #6c63ff !important;
+        }
+
+        .search-bar {
+            max-width: 250px;
+            width: 100%;
+            position: relative;
+        }
+
+        .search-bar input {
+            font-size: 14px
+        }
+
+        .search-button {
+            position: absolute;
+            right: 0px;
+        }
+
+        .search-bar input {
+            border-radius: 0;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            margin-left: 10px;
+            font-size: 18px;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            font-size: 12px;
+        }
+
+
+        .thumbnail-slider .swiper-wrapper .swiper-slide img{
+            max-width: 135px;
+            width: 100%;
+        }
+        
+        .slider-wrapper {
+            padding-right: 60px;
+        }
+
+        .product_details-wrapper {
+            padding-left: 30px;
+        }
+
+        .main-slider img {
+            object-fit: contain;
+            width: 100%;
+        }
+
+        .product_details-wrapper h4 {
+            font-size: 32px;
+            line-height: 35px;
+            margin: 0px;
+        }
+
+        .rating_info {
+            padding: 16px 0px;
+            margin: 0px;
+        }
+
+        .product_details-wrapper h6 {
+            font-size: 16px;
+            line-height: 21px;
+            max-width: 630px;
+            width: 100%;
+            font-weight: 400;
+            margin: 0px;
+        }
+
+        .rating:last-child {
+            color: #000;
+            opacity: 25%;
+        }
+
+        .price-tag {
+            font-size: 28px;
+            font-weight: bold;
+            padding: 16px 0px;
+            margin: 0px;
+        }
+
+        .info-box {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 160px;
+        }
+
+        .quantity-selector button {
+            width: 44px;
+            height: 44px;
+            border: none;
+            background-color: transparent;
+            font-size: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quantity-selector .btn-minus {
+            border-right: 1px solid #ccc;
+        }
+
+        .quantity-selector .btn-plus {
+            border-left: 1px solid #ccc;
+        }
+
+        .quantity-selector .btn-plus {
+            /*background-color: #3b4ffe;*/
+            color: #000;
+        }
+
+        .quantity_wrapper {
+            max-width: 600px;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .quantity-selector input {
+            width: 70px;
+            text-align: center;
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .quantity-selector input:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
+        .cart_btn,
+        .buy-btn {
+            padding: 10px 25px;
+            width: 100%;
+            background: #464CF8;
+            color: #fff;
+        }
+
+        .addtocart_btn {
+            max-width: 315px;
+            width: 100%;
+        }
+
+        .cart_btn:hover,
+        .buy-btn:hover {
+            background: #fff;
+            color: #464CF8;
+        }
+
+
+
+        .tab-content {
+            background-color: #EEF0F2;
+            padding: 30px 15px;
+            border: none;
+            border-top: none;
+        }
+
+        .nav-tabs .nav-link.active {
+            background-color: #EEF0F2;
+            color: #000000;
+        }
+
+        .nav-tabs .nav-link {
+            border: 1px solid transparent;
+            color: #000;
+            font-size: 20px;
+            font-weight: 600;
+            color: #6E6E6E;
+            padding: 15px 30px;
+            background: #CFCFCF;
+            border-radius: 0;
+            border: 0;
+        }
+
+        .tab-content h5 {
+            font-size: 26px;
+            font-weight: 500;
+        }
+
+        .tab-content p {
+            font-size: 16px;
+            line-height: 40px;
+        }
+
+
+        .footer {
+            background-color: #111;
+            color: #fff;
+            padding: 80px 0 30px;
+        }
+
+        .newsletter_part {
+            padding-bottom: 60px;
+        }
+
+        .newsletter_part h4 {
+            font-size: 40px;
+        }
+
+        .newsletter_part input[type="email"] {
+            background: #22222200;
+            border: 1px solid #FDFDFD;
+            color: #fff;
+            border-radius: 30px;
+            padding: 10px 40px;
+            width: 100%;
+            max-width: 550px;
+            margin-left: auto;
+            height: 60px;
+        }
+
+        .newsletter_part .submit-btn {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%) !important;
+            line-height: 1;
+            background-color: #3b82f6;
+            border: none;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 25px;
+            max-width: 140px;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .newsletter_part input::placeholder {
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .news_hr {
+            border: 1px solid #C3C3C3;
+        }
+
+        .footer a {
+            color: #ddd;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #fff;
+        }
+
+        .footer_part {
+            padding-top: 60px;
+        }
+
+        .footer .footer-bottom {
+            border-top: 1px solid #444;
+            margin-top: 30px;
+            padding-top: 20px;
+            font-size: 14px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo img {
+            height: 30px;
+            margin-right: 8px;
+        }
+
+        @media (max-width: 767px) {
+
+            .footer .form-control,
+            .footer .submit-btn {
+                margin-top: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <p>
+                Summer Sale For All Product And Free Express Delivery - OFF 50%! <a href="#" class="text-white fw-bold ms-1">ShopNow</a></p>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="images/logo.png" alt="Logo" class="img-fluid site-logo">
+
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Shop</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Product</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Product 1</a></li>
+                            <li><a class="dropdown-item" href="#">Product 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+                <form class="d-flex search-bar" role="search">
+                    <input class="form-control" type="search" placeholder="What are you looking for?" aria-label="Search">
+                    <button class="btn search-button" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+                <button class="icon-btn position-relative">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+                <button class="icon-btn position-relative">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="badge bg-primary rounded-pill cart-badge">0</span>
+                </button>
+                <button class="icon-btn">
+                    <i class="fa-regular fa-user"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="p_details-page mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="slider-wrapper">
+                        <div class="swiper main-slider mb-3">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="images/product_details.png" alt="Product"></div>
+                                <div class="swiper-slide"><img src="images/product_details.png" alt="Product"></div>
+                                <div class="swiper-slide"><img src="images/product_details.png" alt="Product"></div>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+
+                        <div class="swiper thumbnail-slider">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="images/nav_png.png" class="product-thumb"></div>
+                                <div class="swiper-slide"><img src="images/nav_png.png" class="product-thumb"></div>
+                                <div class="swiper-slide"><img src="images/nav_png.png" class="product-thumb"></div>
+                                <div class="swiper-slide"><img src="images/nav_png.png" class="product-thumb"></div>
+                                <div class="swiper-slide"><img src="images/nav_png.png" class="product-thumb"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="product_details-wrapper">
+                        <h4><strong>Karboon X6 Ultra LTE 4G/128GB, Black Smartphone</strong></h4>
+                        <p class="text-warning rating_info">
+                            <span class="rating mt-0">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <small class="text-muted">(150 Reviews)</small>
+                            </span>
+                            <span class="text-success ms-2">| In Stock</span>
+                        </p>
+                        <h6>As a leading industry expert, we present the Smart Phone 12. With cutting-edge technology and innovative features, this phone offers a seamless and efficient user experience. Enjoy lightning-fast processing, stunning visuals, and intelligent features that cater to your needs. Stay connected and productive with the Smart Phone 12.</h6>
+                        <p class="price-tag">$999.00</p>
+                        <!--<div class="d-flex gap-2 mb-3">
+                            <span class="badge text-bg-success">FREE SHIPPING</span>
+                            <span class="badge text-bg-danger">FREE GIFT</span>
+                        </div>-->
+
+                        <!-- Quantity and Buttons -->
+                        <div class="d-flex align-items-center mb-3 quantity_wrapper">
+                            <div class="quantity-selector">
+                                <button class="btn-minus">-</button>
+                                <input type="text" value="1" id="quantity" readonly />
+                                <button class="btn-plus">+</button>
+                            </div>
+                            <div class="addtocart_btn"><button class="btn btn-primary cart_btn">Add to Cart</button></div>
+                            <!-- <div class=""><button class="btn btn-outline-primary buy-btn">Buy Now</button></div>-->
+                            <div class=""><button class="btn btn-outline-secondary"><i class="bi bi-heart"></i></button></div>
+                        </div>
+
+                        <!-- Info Boxes -->
+                        <div class="info-box">
+                            <p><strong>Free Delivery</strong><br><small>Enter your postal code for Delivery Availability</small></p>
+                            <hr>
+                            <p><strong>Return Delivery</strong><br><small>Free 30 Days Delivery Returns. <a href="#">Details</a></small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-5">
+                <div class="col-12">
+                    <ul class="nav nav-tabs gap-2" id="productTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc" type="button" role="tab">Product Description</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="return-tab" data-bs-toggle="tab" data-bs-target="#return" type="button" role="tab">Return Policy</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="addinfo-tab" data-bs-toggle="tab" data-bs-target="#addinfo" type="button" role="tab">Additional Information</button>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="productTabContent">
+                        <!-- Product Description -->
+                        <div class="tab-pane fade show active" id="desc" role="tabpanel" aria-labelledby="desc-tab">
+                            <h5 class="">We Made Everything Even Better</h5>
+                            <p>- Richard McClintock, a Latin scholar from Hampden-Sydney College, is credited with discovering the source behind the ubiquitous filler text.</p>
+
+                            <h5 class="">More Hours of Playback</h5>
+                            <p>- Lorem ipsum is so ubiquitous because it is so versatile. Select how many paragraphs you want, copy.</p>
+                            <p>- Real copy doesn’t work that way. And that’s why a 15th century typesetter might have scrambled a passage of Cicero.</p>
+
+                            <h5 class="">Included in The Box</h5>
+                            <p>- Aldus Corporation, which later merged with Adobe Systems, ushered lorem ipsum into the information age with desktop publishing software Aldus PageMaker.</p>
+
+                            <h5 class="">On-device Control</h5>
+                            <p>- Aluminium touch interface on right ear cup for controlling your music and phone calls (Play/Pause/Take call). Active Noise Cancellation (on/off).</p>
+                        </div>
+
+                        <!-- Return Policy -->
+                        <div class="tab-pane fade" id="return" role="tabpanel" aria-labelledby="return-tab">
+                            <h5 class="fw-bold">Return Policy</h5>
+                            <p>You can return most items within 30 days of delivery for a full refund. Products must be returned in their original packaging with all accessories included.</p>
+                        </div>
+
+                        <!-- Additional Information -->
+                        <div class="tab-pane fade" id="addinfo" role="tabpanel" aria-labelledby="addinfo-tab">
+                            <h5 class="fw-bold">Additional Information</h5>
+                            <p>This product is covered by a 1-year limited warranty. For support and service, please refer to the user manual or contact customer care.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="common_popular">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h5 class="">Best Selling <strong><span class="underline_text">Products</span></strong></h5>
+                <a href="#" class="text-decoration-none">More Products <i class="bi bi-arrow-right-circle"></i></a>
+            </div>
+
+            <div class="swiper mySwiper-product">
+                <div class="swiper-wrapper">
+
+                    <!-- Slide Item Start -->
+                    <div class="swiper-slide">
+                        <div class="card new-product-card">
+                            <img src="images/131_f04f74fd-45d4-4614-85cf-6ccf69c4cf90%201.png" class="product-image" alt="Product">
+                            <div class="card-body">
+                                <h6 class="text-primary text-left">boAt Airdopes 181 Pro</h6>
+                                <div class="hr"></div>
+                                <div class="price d-flex justify-content-between align-items-start">
+                                    <div class="left_price_details text-start">
+                                        <h5>$999</h5>
+                                        <div>
+                                            <span class="price-old">$1200</span>
+                                            <span class="price-discount">60% off</span>
+                                        </div>
+                                    </div>
+                                    <div class="right_price_details">
+                                        <div class="rating mt-0">
+                                            <i class="bi bi-star-fill"></i>
+                                            <small class="text-muted">4.5</small>
+                                        </div>
+                                        <div class="d-flex justify-content-end mt-2 gap-2">
+                                            <button class="btn btn-outline-primary icon-btnp">
+                                                <i class="bi bi-bag"></i>
+                                            </button>
+                                            <button class="btn btn-outline-secondary icon-btnp">
+                                                <i class="bi bi-heart"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card new-product-card">
+                            <img src="images/131_f04f74fd-45d4-4614-85cf-6ccf69c4cf90%201.png" class="product-image" alt="Product">
+                            <div class="card-body">
+                                <h6 class="text-primary text-left">boAt Airdopes 181 Pro</h6>
+                                <div class="hr"></div>
+                                <div class="price d-flex justify-content-between align-items-start">
+                                    <div class="left_price_details text-start">
+                                        <h5>$999</h5>
+                                        <div>
+                                            <span class="price-old">$1200</span>
+                                            <span class="price-discount">60% off</span>
+                                        </div>
+                                    </div>
+                                    <div class="right_price_details">
+                                        <div class="rating mt-0">
+                                            <i class="bi bi-star-fill"></i>
+                                            <small class="text-muted">4.5</small>
+                                        </div>
+                                        <div class="d-flex justify-content-end mt-2 gap-2">
+                                            <button class="btn btn-outline-primary icon-btnp">
+                                                <i class="bi bi-bag"></i>
+                                            </button>
+                                            <button class="btn btn-outline-secondary icon-btnp">
+                                                <i class="bi bi-heart"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card new-product-card">
+                            <img src="images/131_f04f74fd-45d4-4614-85cf-6ccf69c4cf90%201.png" class="product-image" alt="Product">
+                            <div class="card-body">
+                                <h6 class="text-primary text-left">boAt Airdopes 181 Pro</h6>
+                                <div class="hr"></div>
+                                <div class="price d-flex justify-content-between align-items-start">
+                                    <div class="left_price_details text-start">
+                                        <h5>$999</h5>
+                                        <div>
+                                            <span class="price-old">$1200</span>
+                                            <span class="price-discount">60% off</span>
+                                        </div>
+                                    </div>
+                                    <div class="right_price_details">
+                                        <div class="rating mt-0">
+                                            <i class="bi bi-star-fill"></i>
+                                            <small class="text-muted">4.5</small>
+                                        </div>
+                                        <div class="d-flex justify-content-end mt-2 gap-2">
+                                            <button class="btn btn-outline-primary icon-btnp">
+                                                <i class="bi bi-bag"></i>
+                                            </button>
+                                            <button class="btn btn-outline-secondary icon-btnp">
+                                                <i class="bi bi-heart"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card new-product-card">
+                            <img src="images/131_f04f74fd-45d4-4614-85cf-6ccf69c4cf90%201.png" class="product-image" alt="Product">
+                            <div class="card-body">
+                                <h6 class="text-primary text-left">boAt Airdopes 181 Pro</h6>
+                                <div class="hr"></div>
+                                <div class="price d-flex justify-content-between align-items-start">
+                                    <div class="left_price_details text-start">
+                                        <h5>$999</h5>
+                                        <div>
+                                            <span class="price-old">$1200</span>
+                                            <span class="price-discount">60% off</span>
+                                        </div>
+                                    </div>
+                                    <div class="right_price_details">
+                                        <div class="rating mt-0">
+
+                                            <i class="bi bi-star-fill"></i>
+                                            <small class="text-muted">4.5</small>
+                                        </div>
+                                        <div class="d-flex justify-content-end mt-2 gap-2">
+                                            <button class="btn btn-outline-primary icon-btnp">
+                                                <i class="bi bi-bag"></i>
+                                            </button>
+                                            <button class="btn btn-outline-secondary icon-btnp">
+                                                <i class="bi bi-heart"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card new-product-card">
+                            <img src="images/131_f04f74fd-45d4-4614-85cf-6ccf69c4cf90%201.png" class="product-image" alt="Product">
+                            <div class="card-body">
+                                <h6 class="text-primary text-left">boAt Airdopes 181 Pro</h6>
+                                <div class="hr"></div>
+                                <div class="price d-flex justify-content-between align-items-start">
+                                    <div class="left_price_details text-start">
+                                        <h5>$999</h5>
+                                        <div>
+                                            <span class="price-old">$1200</span>
+                                            <span class="price-discount">60% off</span>
+                                        </div>
+                                    </div>
+                                    <div class="right_price_details">
+                                        <div class="rating mt-0">
+
+                                            <i class="bi bi-star-fill"></i>
+                                            <small class="text-muted">4.5</small>
+                                        </div>
+                                        <div class="d-flex justify-content-end mt-2 gap-2">
+                                            <button class="btn btn-outline-primary icon-btnp">
+                                                <i class="bi bi-bag"></i>
+                                            </button>
+                                            <button class="btn btn-outline-secondary icon-btnp">
+                                                <i class="bi bi-heart"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card new-product-card">
+                            <img src="images/131_f04f74fd-45d4-4614-85cf-6ccf69c4cf90%201.png" class="product-image" alt="Product">
+                            <div class="card-body">
+                                <h6 class="text-primary text-left">boAt Airdopes 181 Pro</h6>
+                                <div class="hr"></div>
+                                <div class="price d-flex justify-content-between align-items-start">
+                                    <div class="left_price_details text-start">
+                                        <h5>$999</h5>
+                                        <div>
+                                            <span class="price-old">$1200</span>
+                                            <span class="price-discount">60% off</span>
+                                        </div>
+                                    </div>
+                                    <div class="right_price_details">
+                                        <div class="rating mt-0">
+
+                                            <i class="bi bi-star-fill"></i>
+
+                                            <small class="text-muted">4.5</small>
+                                        </div>
+                                        <div class="d-flex justify-content-end mt-2 gap-2">
+                                            <button class="btn btn-outline-primary icon-btnp">
+                                                <i class="bi bi-bag"></i>
+                                            </button>
+                                            <button class="btn btn-outline-secondary icon-btnp">
+                                                <i class="bi bi-heart"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card new-product-card">
+                            <img src="images/131_f04f74fd-45d4-4614-85cf-6ccf69c4cf90%201.png" class="product-image" alt="Product">
+                            <div class="card-body">
+                                <h6 class="text-primary text-left">boAt Airdopes 181 Pro</h6>
+                                <div class="hr"></div>
+                                <div class="price d-flex justify-content-between align-items-start">
+                                    <div class="left_price_details text-start">
+                                        <h5>$999</h5>
+                                        <div>
+                                            <span class="price-old">$1200</span>
+                                            <span class="price-discount">60% off</span>
+                                        </div>
+                                    </div>
+                                    <div class="right_price_details">
+                                        <div class="rating mt-0">
+
+                                            <i class="bi bi-star-fill"></i>
+
+                                            <small class="text-muted">4.5</small>
+                                        </div>
+                                        <div class="d-flex justify-content-end mt-2 gap-2">
+                                            <button class="btn btn-outline-primary icon-btnp">
+                                                <i class="bi bi-bag"></i>
+                                            </button>
+                                            <button class="btn btn-outline-secondary icon-btnp">
+                                                <i class="bi bi-heart"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Navigation buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="footer text-white pt-5">
+        <div class="newsletter_part">
+            <div class="container">
+                <!-- Newsletter -->
+                <div class="row text-center text-md-start align-items-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <h4>Subscribe our Newsletter and get <strong>30%</strong> discount for your <strong>First</strong> order</h4>
+                    </div>
+                    <div class="col-md-6">
+                        <form class="d-flex flex-column flex-sm-row gap-2 position-relative">
+                            <input type="email" class="form-control" placeholder="Enter Your email" required>
+                            <button type="submit" class="submit-btn input__field_form_button">Submit Now</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container">
+            <div class="news_hr"></div>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="footer_part">
+            <div class="container">
+                <div class="row text-start">
+                    <div class="col-md-5">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="footer-logo">
+                                    <img src="images/logo-white.png" alt="Ecart logo" class="img-fluid">
+                                </div>
+                                <p class="mt-2">Stay connected for updates, exclusive offers, and more:</p>
+                                <div class="social-icons mt-3">
+                                    <a href="#"><i class="bi bi-instagram"></i></a>
+                                    <a href="#"><i class="bi bi-facebook"></i></a>
+                                    <a href="#"><i class="bi bi-tiktok"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <h6>About Ecart</h6>
+                                <p class="small">Ecart is your trusted online destination for quality products at unbeatable prices. From mobile to home essentials & gadgets, we bring you a seamless shopping experience backed by fast delivery and top-notch customer support.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h6>Legal</h6>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Terms & Conditions</a></li>
+                                    <li><a href="#">Cookie Policy</a></li>
+                                    <li><a href="#">Disclaimer</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-3">
+                                <h6>Customer Service</h6>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">Track Your Order</a></li>
+                                    <li><a href="#">Returns & Refunds</a></li>
+                                    <li><a href="#">Shipping Info</a></li>
+                                    <li><a href="#">FAQs</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-3">
+                                <h6>Quick Links</h6>
+                                <ul class="list-unstyled">
+                                    <li><a href="#">New Arrivals</a></li>
+                                    <li><a href="#">Best Sellers</a></li>
+                                    <li><a href="#">Today's Deals</a></li>
+                                    <li><a href="#">Gift Cards</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-3">
+                                <h6>Payment Methods</h6>
+                                <p class="small">We accept all major credit/debit cards, net banking, UPI, and trusted wallets for safe and secure payments.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="footer-bottom text-center mt-4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center copyText"> &copy; 2025 Ecart. All Rights Reserved.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        const mainSlider = new Swiper('.main-slider', {
+            spaceBetween: 10,
+
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            }
+        });
+
+        const thumbSlider = new Swiper('.thumbnail-slider', {
+            spaceBetween: 10,
+            slidesPerView: 5,
+            freeMode: true,
+            watchSlidesProgress: true
+        });
+
+        // Link thumbnails to main slider
+        mainSlider.controller.control = thumbSlider;
+        thumbSlider.controller.control = mainSlider;
+
+    </script>
+    <script>
+        const swiper_one = new Swiper(".mySwiper-product", {
+            loop: true,
+            slidesPerView: 5.5,
+            spaceBetween: 20,
+            breakpoints: {
+                576: {
+                    slidesPerView: 2.2,
+                    spaceBetween: 20
+                },
+                768: {
+                    slidesPerView: 3.2,
+                    spaceBetween: 20
+                },
+                992: {
+                    slidesPerView: 4.2,
+                    spaceBetween: 20
+                },
+                1200: {
+                    slidesPerView: 5.5,
+                    spaceBetween: 20
+                },
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            }
+        });
+
+    </script>
+</body>
+
+</html>
