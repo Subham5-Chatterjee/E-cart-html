@@ -362,9 +362,9 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+     <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
                 <img src="images/logo.png" alt="Logo" class="img-fluid site-logo">
 
             </a>
@@ -375,17 +375,17 @@
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
+                        <a class="nav-link active" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Shop</a>
+                        <a class="nav-link" href="product-listing.html">Shop</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Product</a>
-                        <ul class="dropdown-menu">
+                        <a class="nav-link" href="#">Product</a>
+                        <!-- <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Product 1</a></li>
                             <li><a class="dropdown-item" href="#">Product 2</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
@@ -404,11 +404,12 @@
                     </button>
                 </form>
                 <button class="icon-btn position-relative">
-                    <i class="fa-regular fa-heart"></i>
+                   <a href="wishlist.html"> <i class="fa-regular fa-heart"></i></a>
+                    <span class="badge bg-primary rounded-pill cart-badge" id="wishCount">0</span>
                 </button>
                 <button class="icon-btn position-relative">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <span class="badge bg-primary rounded-pill cart-badge">0</span>
+                    <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <span class="badge bg-primary rounded-pill cart-badge" id="cartCount">0</span>
                 </button>
                 <button class="icon-btn">
                     <i class="fa-regular fa-user"></i>
@@ -445,9 +446,9 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="product_details-wrapper">
-                        <h4><strong>Karboon X6 Ultra LTE 4G/128GB, Black Smartphone</strong></h4>
+                        <h4 id="product-title"><strong>Karboon X6 Ultra LTE 4G/128GB, Black Smartphone</strong></h4>
                         <p class="text-warning rating_info">
-                            <span class="rating mt-0">
+                            <span class="rating mt-0" id="rating">
                                 <i class="bi bi-star-fill"></i>
                                 <i class="bi bi-star-fill"></i>
                                 <i class="bi bi-star-fill"></i>
@@ -455,10 +456,13 @@
                                 <i class="bi bi-star-fill"></i>
                                 <small class="text-muted">(150 Reviews)</small>
                             </span>
-                            <span class="text-success ms-2">| In Stock</span>
+                            <span class="text-success ms-2" id="availability">| In Stock</span>
                         </p>
-                        <h6>As a leading industry expert, we present the Smart Phone 12. With cutting-edge technology and innovative features, this phone offers a seamless and efficient user experience. Enjoy lightning-fast processing, stunning visuals, and intelligent features that cater to your needs. Stay connected and productive with the Smart Phone 12.</h6>
-                        <p class="price-tag">$999.00</p>
+                        <h6 class="p-description" id="shortDescription">As a leading industry expert, we present the Smart Phone 12. With cutting-edge technology and innovative features, this phone offers a seamless and efficient user experience. Enjoy lightning-fast processing, stunning visuals, and intelligent features that cater to your needs. Stay connected and productive with the Smart Phone 12.</h6>
+                        <div class="d-flex">
+                        <p class="price-tag regularprice text-decoration-line-through" id="product-price-regular">$999.00</p>
+                        <p class="price-tag saleprice" id="product-price-sale">$699.00</p>
+                        </div>
                         <!--<div class="d-flex gap-2 mb-3">
                             <span class="badge text-bg-success">FREE SHIPPING</span>
                             <span class="badge text-bg-danger">FREE GIFT</span>
@@ -466,12 +470,22 @@
 
                         <!-- Quantity and Buttons -->
                         <div class="d-flex align-items-center mb-3 quantity_wrapper">
-                            <div class="quantity-selector">
+                            <!-- <div class="quantity-selector">
                                 <button class="btn-minus">-</button>
                                 <input type="text" value="1" id="quantity" readonly />
                                 <button class="btn-plus">+</button>
+                            </div> -->
+                            <div class="quantity-selector">
+                                <select id="qtySelect">
+                                    <option value="">Select Quantity</option>
+                                    <option  value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
                             </div>
-                            <div class="addtocart_btn"><button class="btn btn-primary cart_btn">Add to Cart</button></div>
+                            <div class="addtocart_btn"><button class="btn btn-primary cart_btn" id="addToCartBtn">Add to Cart</button></div>
                             <!-- <div class=""><button class="btn btn-outline-primary buy-btn">Buy Now</button></div>-->
                             <div class=""><button class="btn btn-outline-secondary"><i class="bi bi-heart"></i></button></div>
                         </div>
@@ -541,249 +555,8 @@
             </div>
 
             <div class="swiper mySwiper-product">
-                <div class="swiper-wrapper">
-
-                    <!-- Slide Item Start -->
-                    <div class="swiper-slide">
-                        <div class="card new-product-card">
-                            <img src="images/131_f04f74fd-45d4-4614-85cf-6ccf69c4cf90%201.png" class="product-image" alt="Product">
-                            <div class="card-body">
-                                <h6 class="text-primary text-left">boAt Airdopes 181 Pro</h6>
-                                <div class="hr"></div>
-                                <div class="price d-flex justify-content-between align-items-start">
-                                    <div class="left_price_details text-start">
-                                        <h5>$999</h5>
-                                        <div>
-                                            <span class="price-old">$1200</span>
-                                            <span class="price-discount">60% off</span>
-                                        </div>
-                                    </div>
-                                    <div class="right_price_details">
-                                        <div class="rating mt-0">
-                                            <i class="bi bi-star-fill"></i>
-                                            <small class="text-muted">4.5</small>
-                                        </div>
-                                        <div class="d-flex justify-content-end mt-2 gap-2">
-                                            <button class="btn btn-outline-primary icon-btnp">
-                                                <i class="bi bi-bag"></i>
-                                            </button>
-                                            <button class="btn btn-outline-secondary icon-btnp">
-                                                <i class="bi bi-heart"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="card new-product-card">
-                            <img src="images/131_f04f74fd-45d4-4614-85cf-6ccf69c4cf90%201.png" class="product-image" alt="Product">
-                            <div class="card-body">
-                                <h6 class="text-primary text-left">boAt Airdopes 181 Pro</h6>
-                                <div class="hr"></div>
-                                <div class="price d-flex justify-content-between align-items-start">
-                                    <div class="left_price_details text-start">
-                                        <h5>$999</h5>
-                                        <div>
-                                            <span class="price-old">$1200</span>
-                                            <span class="price-discount">60% off</span>
-                                        </div>
-                                    </div>
-                                    <div class="right_price_details">
-                                        <div class="rating mt-0">
-                                            <i class="bi bi-star-fill"></i>
-                                            <small class="text-muted">4.5</small>
-                                        </div>
-                                        <div class="d-flex justify-content-end mt-2 gap-2">
-                                            <button class="btn btn-outline-primary icon-btnp">
-                                                <i class="bi bi-bag"></i>
-                                            </button>
-                                            <button class="btn btn-outline-secondary icon-btnp">
-                                                <i class="bi bi-heart"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide">
-                        <div class="card new-product-card">
-                            <img src="images/131_f04f74fd-45d4-4614-85cf-6ccf69c4cf90%201.png" class="product-image" alt="Product">
-                            <div class="card-body">
-                                <h6 class="text-primary text-left">boAt Airdopes 181 Pro</h6>
-                                <div class="hr"></div>
-                                <div class="price d-flex justify-content-between align-items-start">
-                                    <div class="left_price_details text-start">
-                                        <h5>$999</h5>
-                                        <div>
-                                            <span class="price-old">$1200</span>
-                                            <span class="price-discount">60% off</span>
-                                        </div>
-                                    </div>
-                                    <div class="right_price_details">
-                                        <div class="rating mt-0">
-                                            <i class="bi bi-star-fill"></i>
-                                            <small class="text-muted">4.5</small>
-                                        </div>
-                                        <div class="d-flex justify-content-end mt-2 gap-2">
-                                            <button class="btn btn-outline-primary icon-btnp">
-                                                <i class="bi bi-bag"></i>
-                                            </button>
-                                            <button class="btn btn-outline-secondary icon-btnp">
-                                                <i class="bi bi-heart"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card new-product-card">
-                            <img src="images/131_f04f74fd-45d4-4614-85cf-6ccf69c4cf90%201.png" class="product-image" alt="Product">
-                            <div class="card-body">
-                                <h6 class="text-primary text-left">boAt Airdopes 181 Pro</h6>
-                                <div class="hr"></div>
-                                <div class="price d-flex justify-content-between align-items-start">
-                                    <div class="left_price_details text-start">
-                                        <h5>$999</h5>
-                                        <div>
-                                            <span class="price-old">$1200</span>
-                                            <span class="price-discount">60% off</span>
-                                        </div>
-                                    </div>
-                                    <div class="right_price_details">
-                                        <div class="rating mt-0">
-
-                                            <i class="bi bi-star-fill"></i>
-                                            <small class="text-muted">4.5</small>
-                                        </div>
-                                        <div class="d-flex justify-content-end mt-2 gap-2">
-                                            <button class="btn btn-outline-primary icon-btnp">
-                                                <i class="bi bi-bag"></i>
-                                            </button>
-                                            <button class="btn btn-outline-secondary icon-btnp">
-                                                <i class="bi bi-heart"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card new-product-card">
-                            <img src="images/131_f04f74fd-45d4-4614-85cf-6ccf69c4cf90%201.png" class="product-image" alt="Product">
-                            <div class="card-body">
-                                <h6 class="text-primary text-left">boAt Airdopes 181 Pro</h6>
-                                <div class="hr"></div>
-                                <div class="price d-flex justify-content-between align-items-start">
-                                    <div class="left_price_details text-start">
-                                        <h5>$999</h5>
-                                        <div>
-                                            <span class="price-old">$1200</span>
-                                            <span class="price-discount">60% off</span>
-                                        </div>
-                                    </div>
-                                    <div class="right_price_details">
-                                        <div class="rating mt-0">
-
-                                            <i class="bi bi-star-fill"></i>
-                                            <small class="text-muted">4.5</small>
-                                        </div>
-                                        <div class="d-flex justify-content-end mt-2 gap-2">
-                                            <button class="btn btn-outline-primary icon-btnp">
-                                                <i class="bi bi-bag"></i>
-                                            </button>
-                                            <button class="btn btn-outline-secondary icon-btnp">
-                                                <i class="bi bi-heart"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card new-product-card">
-                            <img src="images/131_f04f74fd-45d4-4614-85cf-6ccf69c4cf90%201.png" class="product-image" alt="Product">
-                            <div class="card-body">
-                                <h6 class="text-primary text-left">boAt Airdopes 181 Pro</h6>
-                                <div class="hr"></div>
-                                <div class="price d-flex justify-content-between align-items-start">
-                                    <div class="left_price_details text-start">
-                                        <h5>$999</h5>
-                                        <div>
-                                            <span class="price-old">$1200</span>
-                                            <span class="price-discount">60% off</span>
-                                        </div>
-                                    </div>
-                                    <div class="right_price_details">
-                                        <div class="rating mt-0">
-
-                                            <i class="bi bi-star-fill"></i>
-
-                                            <small class="text-muted">4.5</small>
-                                        </div>
-                                        <div class="d-flex justify-content-end mt-2 gap-2">
-                                            <button class="btn btn-outline-primary icon-btnp">
-                                                <i class="bi bi-bag"></i>
-                                            </button>
-                                            <button class="btn btn-outline-secondary icon-btnp">
-                                                <i class="bi bi-heart"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card new-product-card">
-                            <img src="images/131_f04f74fd-45d4-4614-85cf-6ccf69c4cf90%201.png" class="product-image" alt="Product">
-                            <div class="card-body">
-                                <h6 class="text-primary text-left">boAt Airdopes 181 Pro</h6>
-                                <div class="hr"></div>
-                                <div class="price d-flex justify-content-between align-items-start">
-                                    <div class="left_price_details text-start">
-                                        <h5>$999</h5>
-                                        <div>
-                                            <span class="price-old">$1200</span>
-                                            <span class="price-discount">60% off</span>
-                                        </div>
-                                    </div>
-                                    <div class="right_price_details">
-                                        <div class="rating mt-0">
-
-                                            <i class="bi bi-star-fill"></i>
-
-                                            <small class="text-muted">4.5</small>
-                                        </div>
-                                        <div class="d-flex justify-content-end mt-2 gap-2">
-                                            <button class="btn btn-outline-primary icon-btnp">
-                                                <i class="bi bi-bag"></i>
-                                            </button>
-                                            <button class="btn btn-outline-secondary icon-btnp">
-                                                <i class="bi bi-heart"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="swiper-wrapper" id="bestSellingProduct">
+                    <!-- Best Selling Products will be dynamically inserted here -->
                 </div>
 
                 <!-- Navigation buttons -->
@@ -898,6 +671,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="js/custom.js"></script>
     <script>
         const mainSlider = new Swiper('.main-slider', {
             spaceBetween: 10,
@@ -950,6 +724,195 @@
         });
 
     </script>
+
+ <script>
+      // Get product data from localStorage
+      const product = JSON.parse(localStorage.getItem("singleProduct"));
+
+      console.log(product);
+
+      // Set product title
+      document.getElementById("product-title").textContent = product?.name;
+      document.getElementById("rating").textContent = product?.review?.rating ? `${product.review.rating.toFixed(1)}(${product.review?.count})` : "No reviews yet";
+      document.getElementById("availability").textContent =product?.stock
+        ? "| In Stock"
+        : "| Out of Stock";
+
+      // Set prices
+      document.getElementById(
+        "product-price-regular"
+      ).textContent = `Rs. ${product?.regular_price}`;
+      document.getElementById(
+        "product-price-sale"
+      ).textContent = `Rs. ${product?.sale_price}`;
+
+      // Set short description
+      document.getElementById("shortDescription").textContent =
+        product?.short_description;
+
+      // Always fetch fresh cart data
+      const getCart = () => JSON.parse(localStorage.getItem("cart")) || [];
+      const cartCounter = document.getElementById("cartCount");
+
+      const qtySelect = document.getElementById("qtySelect");
+
+      // Clear and populate options
+      qtySelect.innerHTML = "<option value=''>Select Quantity</option>";
+      for (let i = 1; i <= 5; i++) {
+        qtySelect.innerHTML += `<option value="${i}">${i}</option>`;
+      }
+
+      // Show previously selected quantity if product is in cart
+      const savedCart = getCart();
+      const existingInCart = savedCart.find((item) => item.id === product.id);
+      if (existingInCart && existingInCart.quantity <= product.quantity) {
+        qtySelect.value = existingInCart.quantity;
+      }
+
+      // Handle Add to Cart click
+      document.getElementById("addToCartBtn").addEventListener("click", () => {
+        const selectedQty = parseInt(qtySelect.value);
+        if (!selectedQty || selectedQty < 1) {
+          alert("Please select a quantity.");
+          return;
+        }
+
+        const updatedCart = getCart();
+        
+        const index = updatedCart.findIndex((item) => item.id === product.id);
+
+        if (index > -1) {
+          // Update quantity
+          updatedCart[index].quantity = selectedQty;
+        } else {
+          // Add new product
+          updatedCart.push({ ...product, quantity: selectedQty });
+        }
+        
+        // location.reload();
+        cartCounter.textContent = updatedCart.length;
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        alert("Product added to cart!");
+        
+      });
+
+      // Image sliders
+      const mainSliderSwiper = document.querySelector(".main-slider");
+      const thumbSliderSwiper = document.querySelector(".thumbnail-slider");
+
+      mainSliderSwiper.innerHTML = "";
+      thumbSliderSwiper.innerHTML = "";
+
+      product.gallery.forEach((img) => {
+        mainSliderSwiper.innerHTML += `
+        <div>
+          <a href="${img}" target="_blank" class="thumbnail">
+            <img src="${img}" class="zoom" />
+          </a>
+        </div>
+      `;
+        thumbSliderSwiper.innerHTML += `
+        <div>
+          <img src="${img}" />
+        </div>
+      `;
+      });
+
+      // Description tab
+//       document.querySelector(
+//         "#nav-home"
+//       ).innerHTML = `<p>${product?.long_description}</p>`;
+
+//       // Reviews tab
+//       document.querySelector("#nav-profile").innerHTML = `
+//       <p>Rated: ${product?.review} stars</p>
+//     `;
+
+//       // Social Share Icons
+//       const socialIcons = document.querySelector(".shareIcons ul");
+//       socialIcons.innerHTML = "";
+
+//       product.socialShare.social.forEach((item) => {
+//         socialIcons.innerHTML += `
+//     <li>
+//       <a href="${item.url}" title="Share on ${item.title}" target="_blank" rel="noopener noreferrer">
+//         <img src="${item.icon}" class="img-fluid" alt="${item.title}" />
+//       </a>
+//     </li>
+//   `;
+
+      //Related products
+
+      document.addEventListener("DOMContentLoaded", async function () {
+        const currentProduct = JSON.parse(
+          localStorage.getItem("singleProduct")
+        );
+
+        try {
+          const res = await fetch("data/product.json");
+          const products = await res.json();
+
+          console.log("All", products);
+
+          // Optional: Filter related products (e.g., same category or different from current)
+          const bestSellingProducts = products?.products
+            .filter(
+              (product) =>
+                product?.best_seller === true // simple filter
+            )
+            .slice(0, 6); // limit to 4
+
+            console.log("Best Selling", bestSellingProducts);
+
+          const bestSellingContainer = document.getElementById("bestSellingProduct");
+
+          const bstSellingHTML = bestSellingProducts.map((bal) => {
+            return `<div class="swiper-slide" key=${bal?.id}>
+                <div class="card new-product-card">
+                    <a href="product-details.html" onclick='viewProduct(${JSON.stringify(
+                    bal
+                  )})'><img src=${bal?.thumbnail_image} class="product-image" alt=${bal?.name}></a>
+                    
+                    <div class="card-body">
+                        <h6 class="text-primary text-left">${bal?.name}</h6>
+                        <div class="hr"></div>
+                        <div class="price d-flex justify-content-between align-items-start">
+                            <div class="left_price_details text-start">
+                                <h5>$${bal?.sale_price}</h5>
+                                <div>
+                                    <span class="price-old">$${bal?.regular_price}</span>
+                                    <span class="price-discount">${bal?.discount}</span>
+                                </div>
+                            </div>
+                            <div class="right_price_details">
+                                <div class="rating mt-0">
+                                    <i class="bi bi-star-fill"></i>
+                                    <small class="text-muted">${bal?.review?.rating}</small>
+                                </div>
+                                <div class="d-flex justify-content-end mt-2 gap-2">
+                                    <button class="btn btn-outline-primary icon-btnp" onclick="addToCart('${bal.id}')">
+                                        <i class="bi bi-bag"></i>
+                                    </button>
+                                    <button class="btn btn-outline-secondary icon-btnp" onclick="wishList('${bal.id}')">
+                                        <i class="bi bi-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>`
+          }).join("");
+          bestSellingContainer.innerHTML = bstSellingHTML;
+        } catch (err) {
+          console.error("Error loading products:", err);
+        }
+      });
+    </script>
+
+
+
 </body>
 
 </html>

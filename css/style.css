@@ -233,7 +233,12 @@ body {
     align-items: center;
     justify-content: center;
 }
-
+.wishlist-icon{
+    color: ;
+}
+.wishlist-icon.active-wishlist {
+  color: red; /* or your desired color */
+}
 .price-old {
     text-decoration: line-through;
     color: #888;
@@ -550,6 +555,28 @@ body {
     .footer .form-control,
     .footer .submit-btn {
         margin-top: 10px;
+    }
+    .new-product-card h6 {
+        min-height: 25px;
+    }
+    .new-product-card h6 {
+    font-size: 22px;
+    }
+        .left_price_details h5 {
+        font-size: 22px;
+    }
+        .price-old {
+        font-size: 18px;
+    }
+        .price-discount {
+        font-size: 18px;
+    }
+        .rating {
+        font-size: 16px;
+    }
+    .icon-btnp {
+    width: 30px;
+    height: 30px;
     }
 }
 

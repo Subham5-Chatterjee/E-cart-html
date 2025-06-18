@@ -89,7 +89,36 @@
 
         }
 
-        @media (max-width: 768px) {
+
+@media (max-width:1199px) {
+            .cart_product_info {
+                width: 200px;
+            }
+
+            .cart_image {
+                width: 50px;
+            }
+        }
+        @media (max-width:991px) {
+            .cart_product_info {
+                width: 150px;
+            }
+
+            .cart_image {
+                width: 40px;
+            }
+        }
+        @media (max-width:767px) {
+            .cart_product_info {
+                width: 120px;
+            }
+
+            .cart_image {
+                width: 35px;
+            }
+        }
+
+        /* @media (max-width: 768px) {
             .cart-total-box {
                 margin-top: 30px;
             }
@@ -98,7 +127,7 @@
                 width: 150px;
 
             }
-        }
+        } */
 
         @media (min-width: 1740px) {
 
@@ -138,10 +167,10 @@
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
+                        <a class="nav-link active" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Shop</a>
+                        <a class="nav-link" href="product-listing.html">Shop</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Product</a>
@@ -206,12 +235,12 @@
 
                         <!-- Buttons -->
                         <div class="d-flex justify-content-between mt-4">
-                            <a href="#" class="btn btn-outline-primary">
+                            <a href="product-listing.html" class="btn btn-outline-primary">
                                 ← RETURN TO SHOP
                             </a>
-                            <a href="#" class="btn btn-outline-primary">
+                            <!-- <a href="#" class="btn btn-outline-primary">
                                 UPDATE CART
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                 </div>
@@ -221,17 +250,17 @@
                         <hr>
                         <div class="d-flex justify-content-between">
                             <span>Subtotal:</span>
-                            <span class="totalPrice"></span>
+                            <span>$<span class="totalPrice"></span></span>
                         </div>
                         <div class="d-flex justify-content-between">
                             <span>Shipping:</span>
-                            <span>Free</span>
+                            <span>$<span id="shipping">$0.00</span></span>
                         </div>
                         <div class="d-flex justify-content-between fw-bold border-top pt-2 mt-2">
                             <span>Total:</span>
-                            <span class="totalPrice"></span>
+                            <span>$<span class="cartTotal"></span></span>
                         </div>
-                        <button class="btn btn-primary mt-3">Proceed to checkout</button>
+                        <a class="btn btn-primary mt-3" href="checkout.html">Proceed to checkout</a>
                     </div>
                 </div>
             </div>
